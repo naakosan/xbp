@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+<title>第一回</title>   
+<style>
+body{background-color: rgb(248, 207, 214);
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+
+</style>
+</head> 
+<body>
+<h1>
+<span style="color: rgb(137, 180, 230);">《 第一回 デザイン演習 》</span></h1>
+<br>
+<ul><li><h1>
+Gitについて
+</li></ul></h1>
+<div>
+Gitとはプログラムのソースコードなどの変更履歴を記録・追跡するための分散型バージョン管理システムです。<br>
+Gitでは、各ユーザのワーキングディレクトリに全履歴を含んだリポジトリの完全な複製が作られます。<br>
+したがって、ネットワークにアクセスできないなどの理由で中心リポジトリにアクセスできない環境でも、<br>
+履歴の調査や変更の記録といったほとんどの作業を行うことができるのです。<br>
+これが「分散型」と呼ばれる理由です。<br>
+</div>
+<br>
+<h2>
+💗Gitを使うメリット・Gitで出来ること
+</h2>
+<ol>
+<h2><li>古いバージョンから新しいバージョンのファイルまで管理できる</li></h2>
+<div>修正をする際に新しいファイルを増やしたり、見分けがつくようにファイル名を変えたりする必要もありません。<br>
+そのため、従来に比べてはるかにファイル管理がしやすくなります。<br>
+</div>
+<h2><li>簡単に古いバージョンに戻せる</li></h2>
+<div>Gitが各ファイルの変更履歴を管理しているので、簡単に古いバージョンへ戻すことができます。<br>
+仮に誤って上書きしてしまっても、すぐに任意のバージョンに戻せるのです。<br>
+</div>
+<h2><li>チームでファイルや変更履歴をスムーズに共有できる</li></h2>
+<div>共有ストレージ上のファイルを共同で編集する場合、バージョンごとなどでファイルが作成されフォルダ内が煩雑になっていました。<br>
+しかし、Gitを使うことでファイルを増やす必要がなくなり、スムーズに共有できるようになりました。<br>
+</ol>
+<br>
+<h2>
+🩵Gitのデメリット・注意点   
+</h2>
+一部メンバーだけ従来通り共有ストレージを使うことになると、効率が大幅に下がってしまうので現実的ではないでしょう。<br>
+Gitを使って共同作業の効率を上げるためには、適切に運用ルールを構築・周知する必要があるのです。<br>
+</div>
+<br>
+<br>
+<h2>
+リポジトリとは❓
+</h2>
+<ul>
+<li>ローカルリポジトリ→自分のコンピュータに保存されているプロジェクトの履歴。個人的な記録。</li>
+<li>リモートリポジトリ→複数の人で共同作業するためのもの。</li>
+</ul>
+<div>
+2種類のリポジトリに分けることで、普段の作業はそれぞれのユーザーが手元のローカルリポジトリで行い、<br>
+作業内容を共有するときにリモートリポジトリで公開するという使い方になります。<br>
+そのため、リモートリポジトリを通して他のユーザーの作業内容を把握する事が可能となります。<br>
+<br>
+   イメージ↓
+</div>
+<img src="./images/001-resize.jpg" width="30%"><br>
+<h1><ul>
+<br>
+<li>HTMLに関して</li>
+</ul></h1>
+<div>
+HTMLとは、Hyper Text Markup Languageの略であり、Webページを作成するために開発されたWebプログラミング言語です。<br>
+現在インターネット上で公開されているすべてのWebサイトでHTMLが使われています。<br>
+HTMLを使用することで、段落や見出しなどの文章構成、Webページのリンクの挿入、画像の表示といったWebサイトを作成する<br>
+ 上での基本的な構造及び機能の制作を行うことができます。<br></div>
+ <h2>HTMLタグの種類</h2>
+<ul>
+<li>見出し [h]<br>
+<li>文字を書く  [div]<br>
+<li>画像の挿入  [img]<br>
+<li>箇条書き [li]<br>
+<li>リンクを挿入  [a]<br>
+<li>YouTubeの貼り付け [div class="video"]etc...<br>
+</li>
+</ul>
+<br>
+実際にやってみると…
+</br>
+<h2><ul><li>画像の挿入</li></h2><br>
+〈img src="写真のファイル名"width="好みの倍率"〉を入力 ↓<br>
+<img src="./images/002-resize.jpg" width="30%"><br>
+<div>
+(私の推しのジヒョです💖)
+</div>
+<br>
+<h2><li>リンクの挿入</li></h2>
+〈a href="挿入したいリンク"＞表示名〈/a〉を入力↓<br>
+<a href="https://www.twicejapan.com">TWICE.HP</a><br>
+<h2><li>YouTubeの貼り付け</li></ul></h2>
+<ol><li>動画を開く</li>
+<li>共有をクリック</li>
+<li>共有オプションから「埋め込む」をクリック</li>
+<li>HTMLコードをコピー</li>
+<li>〈div class="video"〉コピーした埋め込みコード〈/div〉</il></ol><br>
+<div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/IIrCrGAX03Y?si=wYGPovn4Ng9BYqkN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<br>
+<div>
+参考サイト
+</div>
+<a href="https://www.kagoya.jp">「入門」Gitとは?できることや使い方、Githabとの違いをわかりやすく解説</a><br>
+<a href="https://udemy.benesse.co.jp">HTMLとは?初心者向けに基本構造からタグの使い方まで解説！</a>
+</body>
