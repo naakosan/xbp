@@ -51,4 +51,17 @@ span.blackback{
     background: #393939;
     color: #efefef;
 }
-
+.bg_pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    opacity: 0.4;
+    z-index: -1;
+  }
+  .Polka {
+    background-image: radial-gradient(#ffc107 2px, #ffffff 2px);
+    background-size: 20px 20px;
+  }
