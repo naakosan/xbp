@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>💗なーこのpython💗</title> 
+
+    <div class="bg_pattern Polka_v2"></div>
+   
+</head>
+
+<body>
+    <div> 
+        <div style="width: 500px; margin: auto;">
+<p> <h1 class="heading-29">日本史クイズ！！</h1><br></p></div>
+        <link rel="stylesheet" href="style.css">
+    </div>
+<br>
+    <div>
+        <div style="width: 1000px; margin: auto;"> 
+私は今回、クイズ形式のゲームを作りたいと考え、簡単な日本史の問題を４つ出し、どれだけ得点がとれるのかというものを作った。<br>
+        </div>
+
+    <div> 
+　　　<h2 class="heading-8">ソースコード</h2><br>
+<div style="width: 1000px; margin: auto;"> 
+ <pre><code>   
+    ok = 0
+    ng = 0
+    print("君は日本の歴史どのくらい理解しているのか❓")
+    a = input("江戸幕府を開いた人物は誰？")
+    b = input("土偶が多く出土するのは何時代の遺跡？")
+    c = input("銀閣寺を建てたのは誰？")
+    d = input("武士で初めて太政大臣になった人物は誰？")
+    if a == "徳川家康":
+        print("正解")
+        ok = ok + 1
+    else:
+        print("不正解")
+        ng = ng + 1
+    if b == "縄文時代" or b == "縄文" or b == "じょうもん" :
+        print("正解")
+        ok = ok + 1
+    else:
+        print("不正解")
+        ng = ng + 1
+    if c == "足利義政" or c == "あしかがよしまさ" in c:
+        print("正解")
+        ok = ok + 1
+    else:
+        print("不正解")
+        ng = ng + 1
+    if d == "平清盛" or d == "たいらのきよもり":
+        print("正解")
+        ok = ok + 1
+    else:
+        print("不正解")
+        ng = ng + 1
+    print("問題終了！！　あなたの正解数は", ok, "正解率は", ok/(ok+ng)*100, "％だよ！　解いてくれてありがとう😊💗")
+    <br>
+　　　　　　 <a href="../de12/python/game.py" target="_blank">ソースコードのダウンロードはこちら</a><br>
+
+
+
+    </code></pre></div>
+　　　 <h2 class="heading-8">参考にしたもの</h2><br>
+　　　　　　<a href="https://msugino21.github.io/xbp/de12/5.html">2021.杉野真央さんのサイト</a><br>
+    <br>
+    <br>
+    </div>
