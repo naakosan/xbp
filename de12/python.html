@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>💗なーこのpython💗</title> 
+
+    <div class="bg_pattern Polka_v2"></div>
+   
+</head>
+
+<body>
+    <div> 
+        <div style="width: 500px; margin: auto;">
+<p> <h1 class="heading-29">プログラミングで出来ること</h1><br></p></div>
+        <link rel="stylesheet" href="style.css">
+    </div>
+<br>
+    <div>
+        <div style="width: 1000px; margin: auto;"> 
+私たちの班は、「10年前の今日、どんなニュースがあったのかをメールで送信してくれる」コードを作ることをテーマにした。<br>
+        </div>
+
+    <div> 
+　　　<h2 class="heading-8">ソースコード</h2><br>
+<div style="width: 1000px; margin: auto;"> 
+    <code>
+        <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+        <li style="background-color:#EFF;">import requests</li>
+        <li style="background-color:#EEF;">import feedparser</li>
+        <li style="background-color:#EFF;">from datetime import datetime</li>
+        <li style="background-color:#EEF;">from dateutil.relativedelta import relativedelta</li>
+        <li style="background-color:#EFF;">import win32com.client</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;"># RSSフィードのURL（Yahoo!ニュース トップ）</li>
+        <li style="background-color:#EEF;">RSS_URL = "https://news.yahoo.co.jp/rss/topics/top-picks.xml"</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;"># RSSフィードからニュースを取得</li>
+        <li style="background-color:#EFF;">def get_japanese_news():</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;try:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;feed = feedparser.parse(RSS_URL)</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if feed.entries:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;news_list = [</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f"{entry.published}: {entry.title}\n{entry.link}"</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for entry in feed.entries[:5]  # 上位5件のニュースを取得</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "\n\n".join(news_list)</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "ニュースを取得できませんでした。"</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;except Exception as e:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"ニュース取得エラー: {e}")</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "ニュース取得中にエラーが発生しました。"</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;"># Wayback MachineのAPIで過去のURLを取得</li>
+        <li style="background-color:#EFF;">def get_wayback_url(base_url, target_date):</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;wayback_api = "http://archive.org/wayback/available"</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;params = {"url": base_url, "timestamp": target_date}</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;try:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;response = requests.get(wayback_api, params=params)</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if response.status_code == 200:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data = response.json()</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snapshots = data.get("archived_snapshots", {})</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;closest = snapshots.get("closest", {})</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if closest:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return closest["url"]</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return None</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"Wayback Machine APIエラー: ステータスコード {response.status_code}")</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return None</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;except Exception as e:</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"Wayback Machineリクエストエラー: {e}")</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return None</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;"># Wayback MachineのURLからニュース情報をスクレイプ</li>
+        <li style="background-color:#EEF;">def scrape_news_from_wayback(wayback_url):</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;# 実際にニュースをスクレイプする処理をここに追加</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;# 現時点ではサンプルとしてダミーのニュースを返す</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;return f"過去のニュース（{wayback_url}）を取得しました。"</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;"># Outlookを使用したメール送信関数</li>
+        <li style="background-color:#EEF;">def send_outlook_email(subject, body, to_email):</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;try:</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outlook = win32com.client.Dispatch("Outlook.Application")</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mail = outlook.CreateItem(0)  # 0はメールアイテムを示す</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mail.To = to_email</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mail.Subject = subject</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mail.Body = body</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mail.Send()</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Outlook経由でメールが送信されました。")</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;except Exception as e:</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"Outlookメール送信エラー: {e}")</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;"># メイン処理</li>
+        <li style="background-color:#EFF;">def main():</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;# 10年前の日付を正確に計算</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;ten_years_ago = datetime.now() - relativedelta(years=10)</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;today = ten_years_ago.strftime("%Y年%m月%d日")</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;# Wayback Machineで10年前のアーカイブURLを取得</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;base_url = "https://news.yahoo.co.jp/topics"</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;target_date = ten_years_ago.strftime("%Y%m%d")  # 10年前の日付をYYYYMMDD形式で取得</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;# Wayback Machineから10年前のYahoo!ニュースのアーカイブURLを取得</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;wayback_url = get_wayback_url(base_url, target_date)</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;if wayback_url:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;news = scrape_news_from_wayback(wayback_url)</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;news = "10年前のアーカイブが見つかりませんでした。"</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;# メールの件名と本文を設定</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;subject = f"10年前の今日 ({today}) の日本のニュース"</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;body = f"10年前の{today}の最新日本ニュース:\n\n{news}"</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;# 送信先メールアドレスを指定</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;to_email = "r202401795pu@jindai.jp"</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;send_outlook_email(subject, body, to_email)</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">if __name__ == "__main__":</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;main()</li>
+        <li style="background-color:#EFF;"></li>
+        </ol></code>
+
+    <br>
+　　　　　　 <a href="./python/mail.py">>ソースコードのダウンロードはこちら</a><br>
+   </div>
+   <div>
+　　　 <h2 class="heading-8">解説</h2><br>
+　　　ChatGPTを参考にして作成した。メールの内容が英語で送られてきてしまったり、そもそも「ニュースを取得できませんでした」というメールしか送られてこなかったりしたので、<br>
+　　　何回も改善を重ねた。しかし、最終的には10年前のニュースのサイトに飛ぶことが出来ても、その詳細をクリックしてもエラーで見られない形となってしまった。私にはこれが限界…😭すみません💧
+　　　　　　
+    <br>
+    <br>
+    </div>
