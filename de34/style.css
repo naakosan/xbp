@@ -1,0 +1,173 @@
+.heading-29 {
+  display: inline-block;
+  position: relative;
+  margin: calc(3.5em / 2) 0 calc(3.5em / 4) calc(3.5em / 2);
+  color: #333333;
+  line-height: 1;
+}
+
+.heading-29::before {
+  position: absolute;
+  bottom: calc(-3.5em / 4);
+  left: calc(-3.5em / 2);
+  z-index: -1;
+  width: 3.5em;
+  height: 3.5em;
+  border-radius: 50%;
+  background: #c2dfff;
+  content: '';
+}
+
+
+
+
+
+
+.heading-8 {
+  display: inline-block;
+  position: relative;
+  padding: .5em .7em;
+  border-radius: 50px 0 0 50px;
+  background-color: #83b1d2;
+  color: #fff;
+}
+
+.heading-8::before {
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 13px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+
+
+.box-007 {
+  max-width: 400px;
+  margin: 0 auto;
+  border: 2px solid #e9994e;
+  border-radius: 5px;
+  color: #333333;
+}
+
+.box-007 div {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 4px;
+  position: relative;
+  top: -13px;
+  left: 10px;
+  margin: 0 7px;
+  padding: 0 8px;
+  background: #fff;
+  color: #e9994e;
+  font-weight: 600;
+  vertical-align: top;
+}
+
+.box-007 div::before {
+  width: 22px;
+  height: 22px;
+  content: '';
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12.8995 6.85453L17.1421 11.0972L7.24264 20.9967H3V16.754L12.8995 6.85453ZM14.3137 5.44032L16.435 3.319C16.8256 2.92848 17.4587 2.92848 17.8492 3.319L20.6777 6.14743C21.0682 6.53795 21.0682 7.17112 20.6777 7.56164L18.5563 9.68296L14.3137 5.44032Z' fill='%23e9994e'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.box-007 p {
+  margin: 0;
+  padding: 0 1.5em 1em;
+}
+
+
+
+
+/*=============
+.bg_pattern
+==============*/
+
+.bg_pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  opacity: 0.4;
+  z-index: -1;
+}
+.Polka_v2 {
+  background-image:  radial-gradient(#b0e2ff 2px, transparent 2px), radial-gradient(#acbdee 2px, #ffffff 2px);
+  background-size: 40px 40px;
+  background-position: 0 0,20px 20px;
+}
+
+/*=============
+base
+==============*/
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: YuGothic, "游ゴシック体", "Yu Gothic", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  letter-spacing: .025em;
+  line-height: 1.8;
+}
+* {
+  box-sizing: border-box;
+}
+.section {
+  max-width: 1024x;
+  margin: 0 auto;
+  padding: 100px 20px 1000px;
+}
+._a {
+  max-width: 300px;
+  margin: 0 auto;  
+}
+._a a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2.0em 1.0em;
+  border: 1px solid #222222;
+  background: linear-gradient(to right, #ffffff 50%, #222222 50%);
+  background-size: 200% auto;
+  color: #222222;
+  font-size: 12px;
+  text-decoration: none;
+  text-align: center;
+  transition: .3s;
+  position: relative;
+}
+._a a:after {
+  content: "";
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid #222222;
+  border-bottom: 1px solid #222222;
+}
+._a a:hover {
+  color: #ffffff;
+  background-position: -100% 0;
+}
+
+
+
+
+.container {
+  border: 2px solid #333;
+  font-size: 20px;
+  height: 150px;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 250px;
+}
+
+
